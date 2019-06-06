@@ -1,0 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+div#main{
+    background-color: rgb(206, 206, 204);
+    height: 689px;
+    display: flex;
+    align-items: center;
+}
+div#secondmain{
+    background-color: rgb(255, 255, 255);
+    height: 95%;
+    border-radius: 5px;
+}
+header{
+    padding-top:50px;
+}
+div.titre{
+    display: flex;
+    align-items: center
+}
+h2{
+    font-weight: 200 !important;
+    width: 100%;
+}
+img{
+    width:80%;
+    margin-left:40px;
+}
+section#form{
+    margin-top: 100px;
+}
+form#formlogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+}
+p{
+    margin-bottom: 30px;
+}
+table{
+    width: 60%;
+    height: 200px;
+    border: solid 1px rgb(143, 143, 143);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+td{
+    margin: 20px;
+}
