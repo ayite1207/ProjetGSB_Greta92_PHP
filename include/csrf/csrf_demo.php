@@ -12,7 +12,6 @@ if(request_is_post()) {
 		if(csrf_token_is_recent()) {
 			$message .= " (recent)";
                         //on fait le traitement
-
 		} else {
 			$message .= " (not recent)";
                         //formulaire invalide

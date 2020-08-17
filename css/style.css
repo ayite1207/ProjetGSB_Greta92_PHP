@@ -1,55 +1,199 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
 div#main{
-    background-color: rgb(206, 206, 204);
-    height: 689px;
-    display: flex;
-    align-items: center;
+    background-color: #dcdde1;
+    height: 100vh;
+	padding-top: 20px;
+}
+div#visiteur{
+    background-color: #dcdde1;
+	padding-top: 20px;
 }
 div#secondmain{
-    background-color: rgb(255, 255, 255);
-    height: 95%;
-    border-radius: 5px;
+    background-color: white;
+    height:90%;
+	border-radius:10px;
 }
-header{
-    padding-top:50px;
+div#visiteur2{
+    background-color: white;
+    height:auto;
+	border-radius:10px;
+	padding-bottom: 30px;	
 }
-div.titre{
-    display: flex;
-    align-items: center
+
+header#logo{
+	height:150px;
+	display: flex;
+    align-items: center;
+}
+div#enTete{
+	padding-top:30px;
+	
 }
 h2{
-    font-weight: 200 !important;
-    width: 100%;
+	display: flex;
+	justify-content: center;
+}
+h3{
+	justify-content: center;
+    display: flex;
+    height: 40px;
+    width: 300px;
+    border-bottom:solid 1px blue;
+}
+p.espaceVisiteur{
+	display: flex;
+	justify-content: center;
+}
+div#image{
+	display: flex;
+    justify-content: flex-end;
 }
 img{
-    width:80%;
-    margin-left:40px;
+	height: 100px;
 }
-section#form{
-    margin-top: 100px;
+div.nav{
+	position: relative;
+	margin-bottom:30px;
+	
 }
-form#formlogin{
-    display: flex;
-    flex-direction: column;
+ul{
+	width: 100%;
+	
+}
+div#deconnexion{
+	position:relative;
+}
+a.deconnexion{
+	position: absolute;
+	left:0px;
+}
+div.formulaire1{
+	margin-top: 100px;
+}
+.formulaire1{
+	margin-top: 100px;
+}
+p#name{
+	margin:0px;
+	display: flex;
     align-items: center;
-    height: 300px;
+    position: absolute;
+    right: 10%;
 }
-p{
-    margin-bottom: 30px;
+h3{
+	margin-top:20px;
+}
+div#form{
+	display: flex;
+    justify-content: center;
+}
+form.formulaire{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+section{
+	width:600px;
+	margin-top:100px;
+	border:solid 0.5px black;
+	border-radius: 10px;
 }
 table{
-    width: 60%;
-    height: 200px;
-    border: solid 1px rgb(143, 143, 143);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
+	margin-top: 30px;
+	margin-bottom:30px;
+	display: flex;
+	flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
+form#formlogin{
+	display: flex;
+	position: relative;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+}
+p{
+	text-align: center;
+	margin: 0px !important;
+}
+p#id{
+	position: absolute;
+    top: -12px;
+    left: 35px;
+    background: white;
+    width: 250px;
+}
+.erreur{
+	color: red;
+}
+p.consultation{
+	border: solid 0.5px;
+	border-radius:5px;
+	width:100%;
+}
+.tdComptable{
+	text-align: center !important;
+	margin: 2px !important;
+	width: 100%;
+	border:solid 0.5px;
+	border-radius:5px;
+	width:120px;
+}
 td{
-    margin: 20px;
+	width:120px;
+}
+input{
+	text-align: center;
+	width:100%;
+	border:none;
+}
+#login{
+	text-align: center;
+	width:100%;
+	border: solid 0.5px;
+	border-radius:5px;
+}
+#login1{
+	text-align: center;
+	background: #d5f9c7;
+	width:100%;
+	border: solid 0.5px;
+	border-radius:5px;
+}
+#mdp{
+	text-align: center;
+	width:100%;
+	border: solid 0.5px;
+	border-radius:5px;
+}
+#mdp1{
+	text-align: center;
+	background: #d5f9c7;
+	width:100%;
+	border: solid 0.5px;
+	border-radius:5px;
+}
+#enregistrer{
+	width:200px;
+	border-radius:5px;
+}
+#ajout{
+	width:70px;
+	border-radius:5px;
+}
+input.encadrer{
+	border: solid 0.5px;
+	border-radius:5px;
+}
+select{
+	border:none;
+	background: white;
+}
+.check{
+	border:solid 0.5px;
+	background: #f1f1f1;
+	border-radius:5px;
+	width:180px;
 }

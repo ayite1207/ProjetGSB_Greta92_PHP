@@ -33,7 +33,7 @@ function destroy_csrf_token() {
 // utilisation: echo csrf_token_tag();
 function csrf_token_tag() {
 	$token = create_csrf_token();
-	return "<input type=\"hidden\" name=\"csrf_token\" value=\"".$token."\">";
+	return "<input type=\"text\" name=\"csrf_token\" value=\"".$token."\">";
 }
 
 // retourne vrai sil'utilisateur a retourne le token
@@ -61,7 +61,7 @@ function die_on_csrf_token_failure() {
 //de création du tocken augmente de la durée de validation (qui est ici de 24 heures est superieure à l'heure actuel)
 function csrf_token_is_recent() {
 	$max_elapsed = 60 * 60 * 24; // 1 jour
-        // $max_elapsed=60*2;
+        //$max_elapsed=60*15;
 	if(isset($_SESSION['csrf_token_time'])) {
 		$stored_time = $_SESSION['csrf_token_time'];
 		return ($stored_time + $max_elapsed) >= time();

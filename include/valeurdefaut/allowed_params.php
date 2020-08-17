@@ -17,6 +17,4 @@ $get_params = allowed_get_params(['username', 'password']);
 var_dump($get_params);
 //on peut alors traiter les variables car elles ont toutes des valeurs par defaut
 
-
-
 ?>

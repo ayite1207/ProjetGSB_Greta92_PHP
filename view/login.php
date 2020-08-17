@@ -1,88 +1,46 @@
 <?php
 ?>
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>enregistrement GSB</title>
-    
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+
 <body>
     <div id="main" class="container-fluid" >
         <div id="secondmain" class="container" >
             <header id="logo" class="row"  >
                 <div id="image" class="col-md-3">
-                    <img src="image/gsb_logo.png" alt="logo_gsb">
+                    <img src="/GSB/image/gsb_logo.png" alt="logo_gsb">
                 </div>
                 <div id="titre" class="col-md-9">
                     <h2>Bienvenue chez GSB</h2>
+                    
                 </div>
             </header>
-            <section id="form" class="row" >
-                <form id="formlogin" class="col-md-12" action="index.php/login" method="POST">
-                <table class="row">
-                    <p>IDENTIFIANTS DE CONNEXION</p><p id="reponse"></p>
-                    <p> Les informations de connéxion sont identiques à celle du site central</p>
-                        <tr class="col-md-12" >
-                            <td><label for="login">login</label></td> 
-                            <td><input name="login" type="text" id="login"></td>
-                        </tr>
-                        <tr class="col-md-12"> 
-                            <td><label for="mdp">Password</label></td>
-                            <td><input name="mdp" type="password" id="mdp"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="button" value="Connexion" id="enregister"></td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </form>
-            </section>
+            <div id="form">
+                <section class="row" >
+                    <form action="/GSB/index.php/login" method="POST" id="formlogin" class="col-md-12">
+                    
+                    <p style="display:none;"> <?php echo csrf_token_tag(); ?> </p>
+                    <table class="login" class="row">
+                        <p id="id">IDENTIFIANTS DE CONNEXION</p>
+                        <p> Les informations de connexion sont identiques à celles du site central</p>
+                            <tr class="col-md-12" >
+                                <td><label for="login">login</label></td> 
+                                <td><input name="login" type="text" id="login<?php if ($background == 1 | $background == 11) {echo "1";}?>"></td>
+                            </tr>
+                            <tr class="col-md-12"> 
+                                <td><label for="mdp">Password</label></td>
+                                <td><input name="mdp" type="text" id="mdp<?php if ($background == 1  || $background == 12) {echo "1";}?>"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="submit" value="Connexion" id="enregister"></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                            <p class="erreur"><?php if ($existe == 1) {echo $erreur;}?>  </p>   
+                    </form>
+                </section>
+          	</div>
         </div>
     </div>
 
-<script>
-    var login    = document.getElementById("login");
-    var password = document.getElementById("mdp");
-    var enregister  = document.getElementById("enregister");
-    enregister.addEventListener("click",verifier);
-    var reponse = document.getElementById("reponse");
-
-    function verifier(){
-        var login    = document.getElementById("login");
-        var password = document.getElementById("mdp");
-        var reponse  = document.getElementById("reponse");
-        if (login.value=="" && password.value==""){
-            reponse.innerHTML              = "Veuillez remplir tout les champs!";
-            login.style.backgroundColor    = "red";
-            password.style.backgroundColor = "red";
-            reponse.style.color            = "red";
-            return false;
-        } else if(login.value=="" || password.value==""){
-            if(login.value==""){
-                reponse.innerHTML           = "Veuillez remplir tout les champs!";
-                login.style.backgroundColor = "red";
-                reponse.style.color         = "red";
-                }else{
-                    login.style.backgroundColor="white";
-                }
-            if (password.value=="" ){
-                password.style.backgroundColor = "red";
-                reponse.style.color            = "red";
-                reponse.innerHTML              = "Veuillez remplir tout les champs!";
-            } else{
-                    password.style.backgroundColor="white";
-                }
-            return false;
-        }else{
-            reponse.innerHTML              = "";
-            login.style.backgroundColor    = "white";
-            password.style.backgroundColor = "white";
-            return true;
-        }
-    }
-</script>
 
 
 

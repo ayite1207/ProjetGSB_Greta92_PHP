@@ -1,50 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    
-    <link rel="stylesheet" href="../css/formulaire.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>User</title>
-</head>
+<?php 
+?>
 <body>
-<div class="container-fluid">
-        <div class="container">
+<div id="visiteur" class="container-fluid">
+        <div id="visiteur2" class="container">
             
             <div class="article">
-                <div class="enTete" class="row">
-                    <div class="col-md-2">
+                <div id="enTete" class="row">
+                     <div id="image" class="col-sm-12 col-md-3">
                         <img class="logo" src="../image/gsb_logo.png" alt="logo_gsb">
                     </div>
-                    <div class=" col-md-10">
+                    <div class=" col-sm-12 col-md-7">
                         <h2>Suivi de remboursement des frais</h2>
                         <p class="espaceVisiteur" >Espace visteur medical</p>
                     </div>
-                    
+                     <div id="deconnexion" class="col-sm-12 col-md-2">
+                         <a class="deconnexion" class="nav-link" href="../index.php">Deconnexion</a>
+                    </div>
                 </div>
-                
                 <div  class="formulaire1" class="row" >
                     <div class="nav" class=" col-m-12 col-sm-12 col-md-12 col-lg-12">
-                        <ul class="nav nav-tabs">
+                        <ul id="nav" class="nav nav-tabs">
                             <li class="nav-item">
-                                <a class="nav-link active" href="userNew.php">Nouveau</a>
+                                <a class="nav-link active" href="/GSB/index.php/userNew">Nouveau</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="userConsult.php">Consulter</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="userConsult.php">Deconnexion</a>
+                                <a class="nav-link" href="#" style="color:red;">Consulter</a>
                             </li>
                         </ul>
+                        <p id="name">Bonjour Mr <?php echo $online->getNom();?></p>
                     </div>
-                    <form class="formulaire" action="">
+                    <form class="formulaire" action="/GSB/index.php/affichage" method="POST">
+                    <!-- <p style="display:none;">  </p> -->
                         <h3>Periode d'engagement</h3>
-                        <table id="periodeengagement" class="">
+                        <table id="periodeEngagementComptable" class="">
                             <tr>
-                                <td><label for="periode">Mois / Année :</label></td>
-                                <td><input name="periode" type="text" id="periode" ></td>
+                            	<td>
+                            		<label for="date">mois</label>
+                            	</td>
+                            	<td>
+                                	<select name="mois" id="date">
+                                		<option value="01">Janvier</option>
+                                		<option value="02">Février</option>
+                                		<option value="03">Mars</option>
+                                		<option value="04">Avril</option>
+                                		<option value="5">Mai</option>
+                                		<option value="06">Juin</option>
+                                		<option value="07">Juillet</option>
+                                		<option value="08">Aout</option>
+                                		<option value="09">Septembre</option>
+                                		<option value="10">Octobre</option>
+                                		<option value="11">Novembre</option>
+                                		<option value="12">Décembre</option>
+                                	</select>
+                            	</td>
+                            	<td>
+                            		<input type="submit" value="afficher les données" id="afficher">
+                            	</td>
                             </tr>
+                            <p class="erreur"><?php if ($message==1) {echo $erreur;}?></p>
                         </table>
+                            <?php if ($existe===1) {?>
                         <h3>Frais au forfait</h3>
                         <table id="frais">
                             <tr>
@@ -56,34 +71,37 @@
                                 <td><label for="km">Date Operation  </label></td>
                             </tr>
                             <tr>
-                                <td ><p class="tableforfait" name="repas" type="text" id="repasmidi"></p></td>
-                                <td ><p class="tableforfait" name="nuitées" type="text" id="nuitées"></p></td>
-                                <td ><p class="tableforfait" name="nuitées" type="text" id="nuitées"></p></td>
-                                <td ><p class="tableforfait" name="km" type="text" id="km"></p></td>
-                                <td ><p class="tableforfait" name="etape" type="text" id="etape"></p></td>
-                                <td ><p class="tableforfait" name="km" type="text" id="km"></p></td>
+                                <td ><p class="consultation" name="repas" type="text" id="repasmidi"><?php echo $ligneFraisForfaitRepas ;?></p></td>
+                                <td ><p class="consultation" name="nuitées" type="text" id="nuitées"><?php echo $ligneFraisForfaitNuitee;?></p></td>
+                                <td ><p class="consultation" name="nuitées" type="text" id="nuitées"><?php echo $ligneFraisForfaitEtape;?></p></td>
+                                <td ><p class="consultation" name="km" type="text" id="km"><?php echo $ligneFraisForfaitKm;?></p></td>
+                                <td ><p class="consultation" name="etape" type="text" id="etape"><?php echo $ficheFrais->getidEtat();?></p></td>
+                                <td ><p class="consultation" name="km" type="text" id="km"><?php echo $ficheFrais->getDateModif();?></p></td>
+                                
                             </tr>
                             
                         </table id="horsforfait">
                         <h3>Hors forfait</h3>
                         <table class="horsforfait">
                             <tr>
-                                <td><p>Date</p></td>
-                                <td><p>Lbellé</p></td>
+                                <td><p >Date</p></td>
+                                <td><p>Libellé</p></td>
                                 <td><p>Montant</p></td>
                                 <td><p>Situation</p></td>
                                 <td><p>Date opération</p></td>
-                                <td></td>
-                            </tr>
-                            <tr class="one">
                                 
-                                <td><p name="datehorsforfait" type="text"></p></td>
-                                <td><p name="libellé" type="text"></p></td>
-                                <td><p name="montant" type="text"></p></td>
-                                <td><p name="situation" type="text"></p></td>
-                                <td><p name="dateoperation" type="text"></p></td>
-
                             </tr>
+                                
+                                	<?php foreach ($ficheHorsForfait as $info){?>
+                            <tr class="one">
+                                <td><p class="consultation" name="datehorsforfait" type="text"><?php echo $info->getDate(); ?></p></td>
+                                <td><p class="consultation" name="libellé" type="text"><?php echo $info->getLibelle()?></p></td>
+                                <td><p class="consultation" name="montant" type="text"><?php echo $info->getMontant()?></p></td>
+                                <td><p class="consultation" name="situation" type="text"><?php echo $ficheFrais->getidEtat();?></p></td>
+                                <td><p class="consultation" name="dateoperation" type="text"><?php echo $ficheFrais->getDateModif();?></p></td>
+                            </tr>
+                                	<?php }?>
+								
                         </table id="classification">
                         <h3>Hors classification</h3>
                         <table>
@@ -94,13 +112,15 @@
                                 <td><p>Date opération</p></td>
                             </tr>
                             <tr>
-                            <td><p class="horsclassification" name="nombrejustificatifs" ></p></td>
-                            <td><p class="horsclassification" name="montanttotal" ></p></td>
-                            <td><p class="horsclassification" name="situationclass" ></p></td>
-                            <td><p class="horsclassification" name="dateoperationclass" ></p></td>
+                            	
+                                <td><p class="consultation" name="nombrejustificatifs" ><?php echo $ficheFrais->getNbJustificatifs();?></p></td>
+                                <td><p class="consultation" name="montanttotal" ><?php echo $ficheFrais->getMontantValide();?></p></td>
+                                <td><p class="consultation" name="situationclass" ><?php echo $ficheFrais->getidEtat();?></p></td>
+                                <td><p class="consultation" name="dateoperationclass" ><?php echo $ficheFrais->getDateModif();?></p></td>
                             </tr>
                         </table>
-                        <input name="enregistrer" type="button" id="enregistrer" value="enregistrer">
+                       <?php }?>
+                        
                     </form>
 
                 </div>

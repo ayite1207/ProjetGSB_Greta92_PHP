@@ -1,0 +1,1 @@
+insert into LigneFraisForfait(idVisiteur,mois,idFraisForfait,quantite) values (:idVisiteur,:mois,:idFraisForfait,:quantite)
